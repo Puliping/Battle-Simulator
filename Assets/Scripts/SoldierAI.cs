@@ -13,13 +13,14 @@ public class SoldierAI : MonoBehaviour
     public float maxMorale;
     private float morale;
     private float moraleReduction => (1 - Mathf.Max(morale / maxMorale, 0)) * .2f;
+    public float speed;
+    public float attackRange;
 
     private LayerMask enemyLayer;
     private SoldierAI target;
 
     public Rigidbody rb;
     public FieldOfView fov;
-    public float attackRange;
 
     private bool attacking;
 
@@ -42,14 +43,17 @@ public class SoldierAI : MonoBehaviour
             transform.LookAt(target.transform);
             if (Vector3.Distance(transform.position, target.transform.position) >= attackRange)
             {
-                transform.Translate(Vector3.forward);
-            } else if (!attacking) {
+                transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            }
+            else if (!attacking)
+            {
                 StartCoroutine(AttackRoutine());
             }
         }
     }
 
-    IEnumerator AttackRoutine(){
+    IEnumerator AttackRoutine()
+    {
         attacking = true;
         while (Vector3.Distance(transform.position, target.transform.position) < attackRange)
         {
@@ -68,7 +72,7 @@ public class SoldierAI : MonoBehaviour
     }
 
     private void TakeDamage(float damage)
-    {   
+    {
         float taken = Mathf.Min(Mathf.Max(damage - defense, damage * 0.05f), hp);
         hp -= taken;
         Debug.Log($"took {taken} damage");
@@ -82,6 +86,6 @@ public class SoldierAI : MonoBehaviour
     private void Die()
     {
         Debug.Log("died");
-        // Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
