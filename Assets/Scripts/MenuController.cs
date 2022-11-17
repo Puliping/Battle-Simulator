@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
         colinas,
         desertos,
         montanhas,
-        pântanos,
+        pÃ¢ntanos,
         estepes,
         praias,
         desfiladeiros
@@ -22,13 +22,13 @@ public class MenuController : MonoBehaviour
 
     public enum Civs
     {
-        impérioromano,
+        impÃ©rioromano,
         dinastiaHan,
         hunos,
         cidadedeEsparta,
-        impérioPérsa,
-        impérioMacedônico,
-        impérioCartaginês
+        impÃ©rioPÃ©rsa,
+        impÃ©rioMacedÃ´nico,
+        impÃ©rioCartaginÃªs
     }
     public Civs civA;
     public Civs civB;
@@ -62,25 +62,25 @@ public class MenuController : MonoBehaviour
         switch (terrainNumber.value)
         {
             case 0:
-                textTerrain.text = "Quando há florestas, as árvores diminuem a visibilidade dos exércitos e também oferecem maior proteção contra ataques à distância, dependendo da densidade destas. Vale ressaltar que, em selvas mais tropicais, a umidade presente no ar acelera o processo de infecção de feridas, assim como o processo de decomposição dos corpos. "
+                textTerrain.text = "Quando hÃ¡ florestas, as Ã¡rvores diminuem a visibilidade dos exÃ©rcitos e tambÃ©m oferecem maior proteÃ§Ã£o contra ataques Ã  distÃ¢ncia, dependendo da densidade destas. Vale ressaltar que, em selvas mais tropicais, a umidade presente no ar acelera o processo de infecÃ§Ã£o de feridas, assim como o processo de decomposiÃ§Ã£o dos corpos. "
                     + "\n" + "- visibilidade " 
                     + "\n" + "- range" 
                     + "\n" + "- speed";
                 break;
             case 1:
-                textTerrain.text = "Em terrenos montanhosos, há maior possibilidade de emboscadas, devido à existência de cavernas e à verticalidade do campo de batalha. Além disso, quanto maior a altitude, menor a densidade do ar, podendo causar falta de oxigênio em soldados menos preparados. Vale notar também a possibilidade de desastres, como avalanches e deslizamentos, mesmo não existindo planos para a implementação destes."
+                textTerrain.text = "Em terrenos montanhosos, hÃ¡ maior possibilidade de emboscadas, devido Ã  existÃªncia de cavernas e Ã  verticalidade do campo de batalha. AlÃ©m disso, quanto maior a altitude, menor a densidade do ar, podendo causar falta de oxigÃªnio em soldados menos preparados. Vale notar tambÃ©m a possibilidade de desastres, como avalanches e deslizamentos, mesmo nÃ£o existindo planos para a implementaÃ§Ã£o destes."
                     + "\n" + "+/-speed "
                     + "\n" + "+/-range"
                     + "\n" + "+/-visibilidade";
                 break;
             case 2:
-                textTerrain.text = "Em desertos, a falta de umidade pode afetar a moral das tropas, assim como o consumo de suprimentos. Equipamentos também podem ser afetados em batalhas mais longas. Quando são desertos de areia, geralmente o terreno é plano, mas podem haver dunas móveis ou mesmo montanhas."
-                    + "\n" + "+cansaço"
+                textTerrain.text = "Em desertos, a falta de umidade pode afetar a moral das tropas, assim como o consumo de suprimentos. Equipamentos tambÃ©m podem ser afetados em batalhas mais longas. Quando sÃ£o desertos de areia, geralmente o terreno Ã© plano, mas podem haver dunas mÃ³veis ou mesmo montanhas."
+                    + "\n" + "+cansaÃ§o"
                     + "\n" + "+fome"
                     + "\n" + "+equipamento";
                 break;
             case 3:
-                textTerrain.text = "Em locais pantanosos ou com grande concentração de lama, a movimentação das tropas pode sofrer uma diminuição de velocidade, ou mesmo ser parada por completo."
+                textTerrain.text = "Em locais pantanosos ou com grande concentraÃ§Ã£o de lama, a movimentaÃ§Ã£o das tropas pode sofrer uma diminuiÃ§Ã£o de velocidade, ou mesmo ser parada por completo."
                     + "\n" + "--speed";
                 break;
             case 4:

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    [HideInInspector]
     public float radius;
     [Range(0, 360)] public float angle;
 
     public LayerMask targetMask;
     public LayerMask obstructionMask;
 
-    [HideInInspector] public SoldierAI closestEnemy;
+    [HideInInspector] public Troop closestEnemy;
 
     private void Start()
     {
@@ -49,7 +50,7 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
-                    closestEnemy = item.transform.parent.GetComponent<SoldierAI>();
+                    closestEnemy = item.transform.parent.GetComponent<Troop>();
                     return;
                 }
             }

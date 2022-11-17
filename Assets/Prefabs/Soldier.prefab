@@ -232,12 +232,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  attack: 20
+  attackDamage: 20
+  attackInterval: 0.4
   defense: 5
   maxMorale: 100
+  speed: 0
+  visibilityRange: 6
+  attackRange: 3
   rb: {fileID: 3115364539307863608}
   fov: {fileID: 513387818932348448}
-  attackRange: 3
 --- !u!114 &513387818932348448
 MonoBehaviour:
   m_ObjectHideFlags: 0
