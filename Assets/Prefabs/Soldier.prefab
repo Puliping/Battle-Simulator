@@ -236,9 +236,10 @@ MonoBehaviour:
   attackInterval: 0.4
   defense: 5
   maxMorale: 100
-  speed: 0
+  speed: 5
   visibilityRange: 6
   attackRange: 3
+  accuracy: 1
   rb: {fileID: 3115364539307863608}
   fov: {fileID: 513387818932348448}
 --- !u!114 &513387818932348448
