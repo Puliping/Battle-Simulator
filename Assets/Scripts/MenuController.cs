@@ -59,6 +59,7 @@ public class MenuController : MonoBehaviour
     public void SelectTerrain(TMP_Dropdown terrainNumber)
     {
         terreno = (Terrains)terrainNumber.value;
+        LevelManager.Instance.terrenos = terreno;
         switch (terrainNumber.value)
         {
             case 0:
@@ -106,11 +107,13 @@ public class MenuController : MonoBehaviour
     public void SelectCivA(TMP_Dropdown civNumber)
     {
         civA = (Civs)civNumber.value;
+        LevelManager.Instance.civA = civA;
         textCivA.text = civA.ToString();
     }
     public void SelectCivB(TMP_Dropdown civNumber)
     {
         civB = (Civs)civNumber.value;
+        LevelManager.Instance.civB = civB;
         textCivB.text = civB.ToString();
     }
     public void SelectTeam()
