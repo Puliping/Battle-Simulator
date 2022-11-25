@@ -22,4 +22,13 @@ public class Terrain : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        /*
+        if (other.gameObject.typeof(tropa)){
+            other.gameObject.GetComponent<SoldierAI>().enterTerreno(this);
+        }
+        */
+    }
 }

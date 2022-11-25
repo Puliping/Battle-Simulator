@@ -31,7 +31,7 @@ public class Troop : MonoBehaviour
 
     private bool attacking;
 
-    private Climate climate;
+    private Weather climate;
     
     private Terrain terrain;
 
@@ -110,7 +110,7 @@ public class Troop : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void ChangeClimate(Climate next) {
+    private void ChangeClimate(Weather next) {
         climate = next;
     }
 
