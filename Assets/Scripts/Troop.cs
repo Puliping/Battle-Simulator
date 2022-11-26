@@ -31,11 +31,11 @@ public class Troop : MonoBehaviour
 
     private bool attacking;
 
-    private Weather climate;
+    private Weather weather;
     
     private Terrain terrain;
 
-    private float effects(string key) => climate.effects[key] + terrain.effects[key];
+    private float effects(string key) => weather.effects[key] + terrain.effects[key];
 
     void Start()
     {
@@ -111,7 +111,7 @@ public class Troop : MonoBehaviour
     }
 
     private void ChangeClimate(Weather next) {
-        climate = next;
+        weather = next;
     }
 
     private void ChangeTerrain(Terrain next){

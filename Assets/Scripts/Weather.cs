@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Weather : MonoBehaviour
 {
     public static Weather Instance;
+    public WeatherData data;
 
     private void Awake()
     {
@@ -21,22 +23,20 @@ public class Weather : MonoBehaviour
         }
     }
 
-    public Dictionary<string, float> effects;
-    // Start is called before the first frame update
     void Start()
     {
-        effects.Add("speed", 0f);
-        effects.Add("attackRange", 0f);
-        effects.Add("visibilityRange", 0f);
-        effects.Add("attackDamage", 0f);
-        effects.Add("attackInterval", 0f);
-        effects.Add("defense", 0f);
-        effects.Add("accuracy", 0f);
+        UpdateDict();
     }
 
-    // Update is called once per frame
-    void Update()
+    public Dictionary<string, float> effects;
+    private void UpdateDict()
     {
-        
+        effects.Add("speed", data.speed);
+        effects.Add("attackRange", data.attackRange);
+        effects.Add("visibilityRange", data.visibilityRange);
+        effects.Add("attackDamage", data.attackDamage);
+        effects.Add("attackInterval", data.attackInterval);
+        effects.Add("defense", data.defense);
+        effects.Add("accuracy", data.accuracy);
     }
 }
