@@ -12,6 +12,9 @@ public class TroopSpawner : MonoBehaviour
     public void SpawnTroop(bool red)
     {
         // TODO do stuff
+        // Somar a tropa que for spawnada para a tropa respectiva
+        GameController.Instance.tropasCivA++;
+        GameController.Instance.tropasCivB++;
     }
     // Start is called before the first frame update
     void Start()
