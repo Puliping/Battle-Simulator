@@ -18,13 +18,13 @@ public class Troop : MonoBehaviour
     public float visibilityRange;
     public float attackRange;
 
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     public float accuracy;
 
     private LayerMask enemyLayer;
     private Troop target;
     private bool inCombat => target != null;
-    private Transform moveTarget;
+    private Vector3 moveTarget = new Vector3(0, 1.5f, 0);
 
     public Rigidbody rb;
     public FieldOfView fov;
@@ -32,10 +32,10 @@ public class Troop : MonoBehaviour
     private bool attacking;
 
     private Weather weather;
-    
+
     private Terrain terrain;
 
-    private float effects(string key) => weather.effects[key] + terrain.effects[key];
+    private float effects(string key) => weather?.effects[key] + terrain?.effects[key] ?? 1;
 
     void Start()
     {
@@ -52,7 +52,6 @@ public class Troop : MonoBehaviour
         target = fov.closestEnemy;
         if (inCombat)
         {
-            target = fov.closestEnemy;
             transform.LookAt(target.transform);
             if (Vector3.Distance(transform.position, target.transform.position) >= attackRange)
             {
@@ -65,7 +64,7 @@ public class Troop : MonoBehaviour
         }
         else
         {
-            if(moveTarget == null) return;
+            if (moveTarget == null) return;
             transform.LookAt(moveTarget);
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
@@ -74,7 +73,7 @@ public class Troop : MonoBehaviour
     IEnumerator AttackRoutine()
     {
         attacking = true;
-        while (Vector3.Distance(transform.position, target.transform.position) < attackRange)
+        while (target != null && Vector3.Distance(transform.position, target.transform.position) < attackRange)
         {
             Attack(target);
             yield return new WaitForSeconds(attackInterval);
@@ -84,7 +83,7 @@ public class Troop : MonoBehaviour
 
     private void Attack(Troop enemy)
     {
-        float admg = attackDamage + effects("attackDamage");
+        float admg = attackDamage * effects("attackDamage");
         float damage = admg * hpPercent;
         damage -= damage * moraleReduction;
         enemy.TakeDamage(damage);
@@ -93,7 +92,7 @@ public class Troop : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
-        float def = defense + effects("defense");
+        float def = defense * effects("defense");
         float taken = Mathf.Min(Mathf.Max(damage - def, damage * 0.05f), hp);
         hp -= taken;
         Debug.Log($"took {taken} damage");
@@ -110,15 +109,18 @@ public class Troop : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void ChangeClimate(Weather next) {
+    private void ChangeClimate(Weather next)
+    {
         weather = next;
     }
 
-    private void ChangeTerrain(Terrain next){
+    private void ChangeTerrain(Terrain next)
+    {
         terrain = next;
     }
 
-    private void Move(Transform target) {
-        moveTarget = target;
+    private void Move(Transform target)
+    {
+        moveTarget = target.position;
     }
 }
