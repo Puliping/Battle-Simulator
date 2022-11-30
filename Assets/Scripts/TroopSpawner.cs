@@ -26,12 +26,14 @@ public class TroopSpawner : MonoBehaviour
             toSpawn = redInfantry;
             min = redSpawn.bounds.min;
             max = redSpawn.bounds.max;
+            GameController.Instance.tropasCivB++;
         } else {
             toSpawn = blueInfantry;
             min = blueSpawn.bounds.min;
             max = blueSpawn.bounds.max;
+            GameController.Instance.tropasCivA++;
         }
-
+        
         Vector3 pointToSpawn = new Vector3(
             Random.Range(min.x, max.x),
             1.5f,
