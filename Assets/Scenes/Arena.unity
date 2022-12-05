@@ -3133,6 +3133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673164767}
   - component: {fileID: 1673164766}
+  - component: {fileID: 1673164768}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3154,6 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tropasCivA: 0
   tropasCivB: 0
+  weather: {fileID: 1673164768}
 --- !u!4 &1673164767
 Transform:
   m_ObjectHideFlags: 0
@@ -3169,6 +3171,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673164768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673164765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab249053de0a84541ba036c5fcdbdc89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 264d73793a58d6348b8cebeeb78eeeee, type: 2}
 --- !u!1 &1728126599
 GameObject:
   m_ObjectHideFlags: 0

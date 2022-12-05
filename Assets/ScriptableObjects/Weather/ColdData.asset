@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ff093d02401b64dbdf763cc0c9cd5b, type: 3}
   m_Name: ColdData
   m_EditorClassIdentifier: 
-  speed: 0.7
-  attackRange: 0.7
-  visibilityRange: 0.7
-  attackDamage: 0
-  attackInterval: 0
-  defense: 0
-  accuracy: 0.7
+  speed: 1
+  attackRange: 1
+  visibilityRange: 1
+  attackDamage: 1
+  attackInterval: 1
+  defense: 1
+  accuracy: 1
   moraleReduction: 1.3

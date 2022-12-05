@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ff093d02401b64dbdf763cc0c9cd5b, type: 3}
   m_Name: FogData
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1
   attackRange: 0.5
   visibilityRange: 0.4
-  attackDamage: 0
-  attackInterval: 0
-  defense: 0
+  attackDamage: 1
+  attackInterval: 1
+  defense: 1
   accuracy: 0.7
+  moraleReduction: 1

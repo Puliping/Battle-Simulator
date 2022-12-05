@@ -15,8 +15,8 @@ MonoBehaviour:
   speed: 0.7
   attackRange: 0.7
   visibilityRange: 0.7
-  attackDamage: 0
-  attackInterval: 0
-  defense: 0
+  attackDamage: 1
+  attackInterval: 1
+  defense: 1
   accuracy: 0.7
   moraleReduction: 1.3
