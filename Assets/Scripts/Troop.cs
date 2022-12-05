@@ -35,7 +35,16 @@ public class Troop : MonoBehaviour
 
     public SimTerrain terrain;
 
-    private float effects(string key) => weather?.effects[key] + terrain?.effects[key] ?? 1;
+    private float effects(string key) => (weather?.effects[key] + terrain?.effects[key]) ?? 1;
+
+    private float mSpeed => speed * effects("speed");
+    private float mAttackRange => attackRange * effects("attackRange");
+    private float mVisibilityRange => visibilityRange * effects("visibilityRange");
+    private float mAttackDamage => attackDamage * effects("attackDamage");
+    private float mAttackInterval => attackInterval * effects("attackInterval");
+    private float mDefense => defense * effects("defense");
+    private float mAccuracy => accuracy * effects("accuracy");
+    
 
     [SerializeField] private Slider slider;
 
@@ -53,7 +62,7 @@ public class Troop : MonoBehaviour
 
     void Start()
     {
-        fov.radius = visibilityRange;
+        fov.radius = mVisibilityRange;
         hp = maxHP;
         morale = maxMorale;
 
@@ -63,13 +72,14 @@ public class Troop : MonoBehaviour
 
     void Update()
     {
+        fov.radius = mVisibilityRange;
         target = fov.closestEnemy;
         if (inCombat)
         {
             transform.LookAt(target.transform);
-            if (Vector3.Distance(transform.position, target.transform.position) >= attackRange)
+            if (Vector3.Distance(transform.position, target.transform.position) >= mAttackRange)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                transform.Translate(Vector3.forward * Time.deltaTime * mSpeed);
             }
             else if (!attacking)
             {
@@ -81,24 +91,24 @@ public class Troop : MonoBehaviour
             if (moveTarget == null) return;
             if (Vector3.Distance(transform.position, moveTarget) < .1) return;
             transform.LookAt(moveTarget);
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * mSpeed);
         }
     }
 
     IEnumerator AttackRoutine()
     {
         attacking = true;
-        while (target != null && Vector3.Distance(transform.position, target.transform.position) < attackRange)
+        while (target != null && Vector3.Distance(transform.position, target.transform.position) < mAttackRange)
         {
             Attack(target);
-            yield return new WaitForSeconds(attackInterval);
+            yield return new WaitForSeconds(mAttackInterval);
         }
         attacking = false;
     }
 
     private void Attack(Troop enemy)
     {
-        float admg = attackDamage * effects("attackDamage");
+        float admg = mAttackDamage;
         float damage = admg * hpPercent;
         damage -= damage * moraleReduction;
         enemy.TakeDamage(damage, this.transform.position);
@@ -106,7 +116,7 @@ public class Troop : MonoBehaviour
 
     private void TakeDamage(float damage, Vector3 from)
     {
-        float def = defense * effects("defense");
+        float def = mDefense;
         float taken = Mathf.Min(Mathf.Max(damage - def, damage * 0.05f), hp);
         hp -= taken;
         slider.value = hpPercent;
