@@ -10,28 +10,21 @@ public class TroopSpawner : MonoBehaviour
         Red
     }
 
+    public GameObject[] troopPrefabs;
     public Collider blueSpawn;
-    public GameObject blueInfantry;
-    // public GameObject blueCavalry;
-    // public GameObject blueArcher;
     public Collider redSpawn;
-    public GameObject redInfantry;
-    // public GameObject redCavalry;
-    // public GameObject redArcher;
-    public void SpawnTroop(bool red)
+    public void SpawnTroop(int type)
     {
-        GameObject toSpawn;
+        GameObject toSpawn = troopPrefabs[type];
         Vector3 min, max;
-        if (red) {
-            toSpawn = redInfantry;
-            min = redSpawn.bounds.min;
-            max = redSpawn.bounds.max;
-            GameController.Instance.tropasCivB++;
-        } else {
-            toSpawn = blueInfantry;
+        if (type < 3) {
             min = blueSpawn.bounds.min;
             max = blueSpawn.bounds.max;
             GameController.Instance.tropasCivA++;
+        } else {
+            min = redSpawn.bounds.min;
+            max = redSpawn.bounds.max;
+            GameController.Instance.tropasCivB++;
         }
         
         Vector3 pointToSpawn = new Vector3(

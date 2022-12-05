@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Troop : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class Troop : MonoBehaviour
     private LayerMask enemyLayer;
     private Troop target;
     private bool inCombat => target != null;
-    private Vector3 moveTarget = new Vector3(0, 1.5f, 0);
+    [HideInInspector] public Vector3 moveTarget;
 
     public Rigidbody rb;
     public FieldOfView fov;
@@ -36,6 +36,20 @@ public class Troop : MonoBehaviour
     private Terrain terrain;
 
     private float effects(string key) => weather?.effects[key] + terrain?.effects[key] ?? 1;
+
+    [SerializeField] private Slider slider;
+
+    private void Awake() {
+        StartCoroutine(ChooseNewMoveTarget());
+    }
+
+    IEnumerator ChooseNewMoveTarget() {
+        float x = Random.Range(-10, 10);
+        float z = Random.Range(-10, 10);
+        moveTarget = new Vector3(x, 1.5f, z);
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(ChooseNewMoveTarget());
+    }
 
     void Start()
     {
@@ -65,6 +79,7 @@ public class Troop : MonoBehaviour
         else
         {
             if (moveTarget == null) return;
+            if (Vector3.Distance(transform.position, moveTarget) < .1) return;
             transform.LookAt(moveTarget);
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
@@ -86,26 +101,28 @@ public class Troop : MonoBehaviour
         float admg = attackDamage * effects("attackDamage");
         float damage = admg * hpPercent;
         damage -= damage * moraleReduction;
-        enemy.TakeDamage(damage);
-        Debug.Log($"attacking for {damage}");
+        enemy.TakeDamage(damage, this.transform.position);
     }
 
-    private void TakeDamage(float damage)
+    private void TakeDamage(float damage, Vector3 from)
     {
         float def = defense * effects("defense");
         float taken = Mathf.Min(Mathf.Max(damage - def, damage * 0.05f), hp);
         hp -= taken;
-        Debug.Log($"took {taken} damage");
+        slider.value = hpPercent;
         if (hp <= 0)
         {
             hp = 0;
             Die();
         }
+        else
+        {
+            transform.LookAt(from);
+        }
     }
 
     private void Die()
     {
-        Debug.Log("died");
         Destroy(this.gameObject);
     }
 

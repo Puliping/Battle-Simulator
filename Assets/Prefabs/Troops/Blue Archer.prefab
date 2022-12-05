@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1024235707126146750, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce05b8b59822baa42a2374e4044cb640, type: 3}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: defense
       value: 3
@@ -31,6 +35,10 @@ PrefabInstance:
       propertyPath: visibilityRange
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1380164438584776565, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce05b8b59822baa42a2374e4044cb640, type: 3}
     - target: {fileID: 4889813586795845348, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: m_Name
       value: Blue Archer
