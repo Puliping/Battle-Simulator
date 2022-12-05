@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Terrain : MonoBehaviour
 {
-    public Dictionary<string, float> effects;
+    public Dictionary<string, float> effects = new Dictionary<string, float>();
     public TerrainData data;
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,9 @@ public class Terrain : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*
-        if (other.gameObject.typeof(tropa)){
-            other.gameObject.GetComponent<SoldierAI>().enterTerreno(this);
-        }
-        */
+        Troop troop = other.GetComponentInChildren<Troop>();
+
+        if (troop != null)
+            troop.terrain = this;
     }
 }

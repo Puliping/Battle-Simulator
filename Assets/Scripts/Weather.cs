@@ -28,7 +28,7 @@ public class Weather : MonoBehaviour
         UpdateDict();
     }
 
-    public Dictionary<string, float> effects;
+    public Dictionary<string, float> effects = new Dictionary<string, float>();
     private void UpdateDict()
     {
         effects.Add("speed", data.speed);

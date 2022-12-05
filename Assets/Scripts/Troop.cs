@@ -31,9 +31,9 @@ public class Troop : MonoBehaviour
 
     private bool attacking;
 
-    private Weather weather;
+    public Weather weather;
 
-    private Terrain terrain;
+    public Terrain terrain;
 
     private float effects(string key) => weather?.effects[key] + terrain?.effects[key] ?? 1;
 
@@ -123,6 +123,7 @@ public class Troop : MonoBehaviour
 
     private void Die()
     {
+        GameController.Instance.TropaDeath(this);
         Destroy(this.gameObject);
     }
 

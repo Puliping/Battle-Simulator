@@ -33,6 +33,7 @@ public class TroopSpawner : MonoBehaviour
             Random.Range(min.z, max.z)
         );
 
-        GameObject.Instantiate(toSpawn, pointToSpawn, toSpawn.transform.rotation);
+        Troop troop = GameObject.Instantiate(toSpawn, pointToSpawn, toSpawn.transform.rotation).GetComponentInChildren<Troop>();
+        GameController.Instance.AddToTroopList(troop);
     }
 }

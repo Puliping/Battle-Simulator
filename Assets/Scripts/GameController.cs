@@ -17,9 +17,9 @@ public class GameController : MonoBehaviour
     {
         
     }
-    public void TropaDeath(bool Ateam)
+    public void TropaDeath(Troop troop)
     {
-        if (Ateam)
+        if (troop.gameObject.layer == LayerMask.NameToLayer("TroopBlue"))
         {
             tropasCivA--;
         }
@@ -27,11 +27,14 @@ public class GameController : MonoBehaviour
         {
             tropasCivB--;
         }
+
+        troopList.Remove(troop);
+
         if (tropasCivA <= 0)
         {
             EndGame(true);
         }
-        else
+        else if (tropasCivB <= 0)
         {
             EndGame(false);
         }
@@ -64,5 +67,19 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    List<Troop> troopList = new List<Troop>();
+    public void AddToTroopList(Troop troop)
+    {
+        troopList.Add(troop);
+        troop.weather = weather;
+    }
+
+    public Weather weather;
+    public void UpdateWeather(Weather nextWeather) {
+        weather = nextWeather;
+        foreach (Troop troop in troopList)
+            troop.weather = weather;
     }
 }
