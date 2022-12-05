@@ -33,7 +33,7 @@ public class Troop : MonoBehaviour
 
     public Weather weather;
 
-    public Terrain terrain;
+    public SimTerrain terrain;
 
     private float effects(string key) => weather?.effects[key] + terrain?.effects[key] ?? 1;
 
@@ -132,7 +132,7 @@ public class Troop : MonoBehaviour
         weather = next;
     }
 
-    private void ChangeTerrain(Terrain next)
+    private void ChangeTerrain(SimTerrain next)
     {
         terrain = next;
     }

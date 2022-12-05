@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Terrain : MonoBehaviour
+public class SimTerrain : MonoBehaviour
 {
     public Dictionary<string, float> effects = new Dictionary<string, float>();
     public TerrainData data;
