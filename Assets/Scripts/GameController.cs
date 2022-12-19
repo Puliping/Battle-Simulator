@@ -5,36 +5,67 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
-    public int tropasCivA;
-    public int tropasCivB;
+    public int tropasCivBlue;
+    public int tropasCivRed;
     private bool paused = false;
+    public List<Troop> soldiersTeamBlue = new List<Troop>();
+    public List<Troop> archersTeamBlue = new List<Troop>();
+    public List<Troop> knightsTeamBlue = new List<Troop>();
+    public List<Troop> soldiersTeamRed = new List<Troop>();
+    public List<Troop> archersTeamRed = new List<Troop>();
+    public List<Troop> knightsTeamRed = new List<Troop>();
+    public List<Troop> troopList = new List<Troop>();
+    public Weather weather;
+
+    public GameObject blueWinImage;
+    public GameObject redWinImage;
     private void Awake()
     {
         Instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
     public void TropaDeath(Troop troop)
     {
         if (troop.gameObject.layer == LayerMask.NameToLayer("TroopBlue"))
         {
-            tropasCivA--;
+            tropasCivBlue--;
+            switch (troop.troopClass)
+            {
+                case Troop.Class.Soldier:
+                    soldiersTeamBlue.Remove(troop);
+                    break;
+                case Troop.Class.Knights:
+                    knightsTeamBlue.Remove(troop);
+                    break;
+                case Troop.Class.Archer:
+                    archersTeamBlue.Remove(troop);
+                    break;
+            }
         }
         else
         {
-            tropasCivB--;
+            tropasCivRed--;
+            switch (troop.troopClass)
+            {
+                case Troop.Class.Soldier:
+                    soldiersTeamRed.Remove(troop);
+                    break;
+                case Troop.Class.Knights:
+                    knightsTeamRed.Remove(troop);
+                    break;
+                case Troop.Class.Archer:
+                    archersTeamRed.Remove(troop);
+                    break;
+            }
         }
 
         troopList.Remove(troop);
 
-        if (tropasCivA <= 0)
+        if (tropasCivBlue <= 0)
         {
             EndGame(true);
         }
-        else if (tropasCivB <= 0)
+        else if (tropasCivRed <= 0)
         {
             EndGame(false);
         }
@@ -42,14 +73,16 @@ public class GameController : MonoBehaviour
     public void EndGame(bool Ateam)
     {
         Time.timeScale = 0f;
-        if (Ateam)
+        if (!Ateam)
         {
+            blueWinImage.SetActive(true);
             Debug.Log("time A ganhou");
         }
         else
         {
+            redWinImage.SetActive(true);
             Debug.Log("time B ganhou");
-        }        
+        }
     }
     public void Pause()
     {
@@ -66,18 +99,17 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    List<Troop> troopList = new List<Troop>();
     public void AddToTroopList(Troop troop)
     {
         troopList.Add(troop);
         troop.weather = weather;
     }
 
-    public Weather weather;
-    public void UpdateWeather(Weather nextWeather) {
+    public void UpdateWeather(Weather nextWeather)
+    {
         weather = nextWeather;
         foreach (Troop troop in troopList)
             troop.weather = weather;

@@ -8,8 +8,10 @@ public class Troop : MonoBehaviour
     public float maxHP;
     private float hp;
     private float hpPercent => Mathf.Max(hp / maxHP, 0);
+    public float baseAttackDamage;
     public float attackDamage;
     public float attackInterval;
+    public float baseDefense;
     public float defense;
     public float maxMorale;
     private float morale;
@@ -22,10 +24,9 @@ public class Troop : MonoBehaviour
     public float accuracy;
 
     private LayerMask enemyLayer;
-    private Troop target;
-    private bool inCombat => target != null;
+    private Troop target = null;
+    public bool inCombat;
     [HideInInspector] public Vector3 moveTarget;
-
     public Rigidbody rb;
     public FieldOfView fov;
 
@@ -44,21 +45,27 @@ public class Troop : MonoBehaviour
     private float mAttackInterval => attackInterval * effects("attackInterval");
     private float mDefense => defense * effects("defense");
     private float mAccuracy => accuracy * effects("accuracy");
-    
+    public enum Class
+    {
+        Soldier,
+        Knights,
+        Archer
+    }
+    public Class troopClass;
 
     [SerializeField] private Slider slider;
 
     private void Awake() {
-        StartCoroutine(ChooseNewMoveTarget());
+        //StartCoroutine(ChooseNewMoveTarget());
     }
 
-    IEnumerator ChooseNewMoveTarget() {
-        float x = Random.Range(-10, 10);
-        float z = Random.Range(-10, 10);
-        moveTarget = new Vector3(x, 1.5f, z);
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(ChooseNewMoveTarget());
-    }
+    //IEnumerator ChooseNewMoveTarget() {
+    //    float x = Random.Range(-10, 10);
+    //    float z = Random.Range(-10, 10);
+    //    moveTarget = new Vector3(x, 1.5f, z);
+    //    yield return new WaitForSeconds(5f);
+    //    StartCoroutine(ChooseNewMoveTarget());
+    //}
 
     void Start()
     {
@@ -73,7 +80,11 @@ public class Troop : MonoBehaviour
     void Update()
     {
         fov.radius = mVisibilityRange;
-        target = fov.closestEnemy;
+        if (target == null)
+        {
+            target = fov.closestEnemy;
+            if (target == null) inCombat = false;
+        }
         if (inCombat)
         {
             transform.LookAt(target.transform);
@@ -108,7 +119,7 @@ public class Troop : MonoBehaviour
 
     private void Attack(Troop enemy)
     {
-        float admg = mAttackDamage;
+        float admg = 20;
         float damage = admg * hpPercent;
         damage -= damage * moraleReduction;
         enemy.TakeDamage(damage, this.transform.position);
@@ -147,8 +158,14 @@ public class Troop : MonoBehaviour
         terrain = next;
     }
 
-    private void Move(Transform target)
+    public void Move(Transform target)
     {
-        moveTarget = target.position;
+        if (target)
+            moveTarget = target.position;
+    }
+    public void Target(Troop troop)
+    {
+        inCombat = true;
+        target = troop;
     }
 }

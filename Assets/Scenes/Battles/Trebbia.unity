@@ -3243,11 +3243,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad31652a4dca945468c413efee6b3113, type: 3}
---- !u!20 &1628067959 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3521272627777938974, guid: ad31652a4dca945468c413efee6b3113, type: 3}
-  m_PrefabInstance: {fileID: 1628067958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1673164766 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8465562258520357723, guid: b42b5d117c5a9e04d8cb9b9bc8d9f33c, type: 3}
@@ -3652,7 +3647,7 @@ GameObject:
   - component: {fileID: 1924223228}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3938,7 +3933,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1628067959}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
