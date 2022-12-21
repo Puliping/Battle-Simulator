@@ -5,36 +5,39 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
-    public int tropasCivA;
-    public int tropasCivB;
+    public int tropasCivBlue;
+    public int tropasCivRed;
     private bool paused = false;
+    public List<Troop> soldiersTeamBlue = new List<Troop>();
+    public List<Troop> archersTeamBlue = new List<Troop>();
+    public List<Troop> knightsTeamBlue = new List<Troop>();
+    public List<Troop> soldiersTeamRed = new List<Troop>();
+    public List<Troop> archersTeamRed = new List<Troop>();
+    public List<Troop> knightsTeamRed = new List<Troop>();
+    public List<Troop> troopList = new List<Troop>();
+    public Weather weather;
     private void Awake()
     {
         Instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
     public void TropaDeath(Troop troop)
     {
         if (troop.gameObject.layer == LayerMask.NameToLayer("TroopBlue"))
         {
-            tropasCivA--;
+            tropasCivBlue--;
         }
         else
         {
-            tropasCivB--;
+            tropasCivRed--;
         }
 
         troopList.Remove(troop);
 
-        if (tropasCivA <= 0)
+        if (tropasCivBlue <= 0)
         {
             EndGame(true);
         }
-        else if (tropasCivB <= 0)
+        else if (tropasCivRed <= 0)
         {
             EndGame(false);
         }
@@ -67,16 +70,12 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
-    }
-
-    List<Troop> troopList = new List<Troop>();
+    }    
     public void AddToTroopList(Troop troop)
     {
         troopList.Add(troop);
         troop.weather = weather;
-    }
-
-    public Weather weather;
+    }    
     public void UpdateWeather(Weather nextWeather) {
         weather = nextWeather;
         foreach (Troop troop in troopList)

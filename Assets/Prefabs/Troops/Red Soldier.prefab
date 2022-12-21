@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+      propertyPath: baseAttackDamage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7401059643449947015, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
       propertyPath: m_Material
       value: 
@@ -93,3 +101,36 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e5d284fbf13ce6249ba1c319faae7cdf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+--- !u!114 &4496169740051151993 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+  m_PrefabInstance: {fileID: 6504681135382715164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785547541706926346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cb33a808d6ca848a3f2d6d927668d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7785547541706926346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3913231405201535510, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+  m_PrefabInstance: {fileID: 6504681135382715164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2307660679046242874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785547541706926346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3058e0e633de7c4195e3da793e9449c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  team: 1
+  enemyToAttack: 0
+  troop: {fileID: 4496169740051151993}
+  trooToAtack: {fileID: 0}

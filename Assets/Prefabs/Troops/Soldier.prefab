@@ -422,17 +422,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  baseAttackDamage: 20
   attackDamage: 20
   attackInterval: 0.4
+  baseDefense: 0
   defense: 5
   maxMorale: 100
   speed: 5
   visibilityRange: 6
   attackRange: 3
   accuracy: 1
+  inCombat: 0
   moveTarget: {x: 0, y: 0, z: 0}
   rb: {fileID: 3115364539307863608}
   fov: {fileID: 513387818932348448}
+  weather: {fileID: 0}
+  terrain: {fileID: 0}
+  troopClass: 0
   slider: {fileID: 4685159404651029019}
 --- !u!114 &513387818932348448
 MonoBehaviour:

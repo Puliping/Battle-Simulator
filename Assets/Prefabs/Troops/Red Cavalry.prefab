@@ -20,6 +20,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4496169740051151993, guid: b60f1cd9e1744d2418f6f9c19c7f6198, type: 3}
+      propertyPath: troopClass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496169740051151993, guid: b60f1cd9e1744d2418f6f9c19c7f6198, type: 3}
       propertyPath: attackRange
       value: 4
       objectReference: {fileID: 0}
@@ -83,5 +87,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2307660679046242874, guid: b60f1cd9e1744d2418f6f9c19c7f6198, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b60f1cd9e1744d2418f6f9c19c7f6198, type: 3}
+--- !u!114 &549083505906285162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4496169740051151993, guid: b60f1cd9e1744d2418f6f9c19c7f6198, type: 3}
+  m_PrefabInstance: {fileID: 4177974880421676563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192718016528084761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cb33a808d6ca848a3f2d6d927668d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6192718016528084761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7785547541706926346, guid: b60f1cd9e1744d2418f6f9c19c7f6198, type: 3}
+  m_PrefabInstance: {fileID: 4177974880421676563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &482609388690494885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192718016528084761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3234af12aac51914489738fcbc292def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  team: 1
+  enemyToAttack: 0
+  troop: {fileID: 549083505906285162}
+  trooToAtack: {fileID: 0}

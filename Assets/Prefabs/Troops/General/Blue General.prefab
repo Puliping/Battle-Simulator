@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6394316577259716181
+--- !u!1001 &1742183143657758627
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,38 +10,38 @@ PrefabInstance:
     - target: {fileID: 1024235707126146750, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 31a1c24300470a04b859d95157ee11e3, type: 3}
+      objectReference: {fileID: 21300000, guid: 0f579b1fd93b2554c8593025226e6d05, type: 3}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
-      propertyPath: speed
-      value: 8
+      propertyPath: defense
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
-      propertyPath: troopClass
-      value: 1
+      propertyPath: accuracy
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: attackRange
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: attackDamage
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: attackInterval
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: visibilityRange
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1380164438584776565, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 31a1c24300470a04b859d95157ee11e3, type: 3}
+      objectReference: {fileID: 21300000, guid: ce05b8b59822baa42a2374e4044cb640, type: 3}
     - target: {fileID: 4889813586795845348, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: m_Name
-      value: Blue Cavalry
+      value: Blue General
       objectReference: {fileID: 0}
     - target: {fileID: 6636560286829009415, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
       propertyPath: m_RootOrder
@@ -87,39 +87,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 426503944780283316, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
---- !u!1 &1972918038003755185 stripped
+--- !u!1 &6625184117677656391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4889813586795845348, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
-  m_PrefabInstance: {fileID: 6394316577259716181}
+  m_PrefabInstance: {fileID: 1742183143657758627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2050501861330702479
+--- !u!114 &304719844136536498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972918038003755185}
+  m_GameObject: {fileID: 6625184117677656391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3234af12aac51914489738fcbc292def, type: 3}
+  m_Script: {fileID: 11500000, guid: 418f1f9a97abce443870290d2f9aa577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
   team: 0
-  enemyToAttack: 0
-  troop: {fileID: 5264565248855915970}
-  trooToAtack: {fileID: 0}
---- !u!114 &5264565248855915970 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1275173174985147287, guid: f36b66c1a3a68b5498c869b3b17fa51e, type: 3}
-  m_PrefabInstance: {fileID: 6394316577259716181}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972918038003755185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cb33a808d6ca848a3f2d6d927668d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

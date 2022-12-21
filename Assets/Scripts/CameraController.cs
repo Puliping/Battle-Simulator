@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour
         // Position
         velocity += speed * GetAccelerationVector() * Time.deltaTime;
 
+
         // Rotation
         if (Focused)
             UpdateInput();
