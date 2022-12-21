@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+      propertyPath: baseAttackDamage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7401059643449947015, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
       propertyPath: m_Material
       value: 

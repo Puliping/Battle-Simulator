@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+      propertyPath: attackInterval
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215012382789085029, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
+      propertyPath: baseAttackDamage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8665527745267122440, guid: 1d6fa6e7bc082b0498fbbf9cde9f8131, type: 3}
       propertyPath: m_Layer
       value: 6
